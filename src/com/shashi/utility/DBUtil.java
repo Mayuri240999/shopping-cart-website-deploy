@@ -27,7 +27,8 @@ public class DBUtil {
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-				conn = DriverManager.getConnection(connectionString, username, password);
+				conn = DriverManager.getConnection("jdbc:mysql://database.cpi4gcqm8vwu.eu-west-3.rds.amazonaws.com:3306/your_db?serverTimezone=UTC",
+                                                   "admin", "Mayuri1234");
 
 			}
 		} catch (SQLException e) {
