@@ -188,6 +188,11 @@ public class ProductServiceImpl implements ProductService {
 		List<ProductBean> products = new ArrayList<ProductBean>();
 
 		Connection con = DBUtil.provideConnection();
+		if (con == null) {
+                   System.out.println("❌ ERROR: Database connection is NULL!");
+                   return products; // Return empty list instead of NULL
+                }
+
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -215,8 +220,8 @@ public class ProductServiceImpl implements ProductService {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-
+		} finally {
+                  
 		DBUtil.closeConnection(con);
 		DBUtil.closeConnection(ps);
 		DBUtil.closeConnection(rs);
