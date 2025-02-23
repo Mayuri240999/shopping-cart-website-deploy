@@ -32,6 +32,10 @@
 	}
 
 	ProductServiceImpl prodDao = new ProductServiceImpl();
+         if (prodDao == null) {
+             throw new IllegalStateException("ProductServiceImpl is not initialized!");
+         }
+
 	List<ProductBean> products = new ArrayList<ProductBean>();
 
 	String search = request.getParameter("search");
