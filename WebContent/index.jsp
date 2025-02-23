@@ -32,6 +32,9 @@
 	}
 
 	ProductServiceImpl prodDao = new ProductServiceImpl();
+        if (prodDao == null) {
+            throw new IllegalStateException("prodDao is NULL!");
+        }
 	List<ProductBean> products = new ArrayList<ProductBean>();
 
 	String search = request.getParameter("search");
